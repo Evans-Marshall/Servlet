@@ -26,15 +26,26 @@ public class MyServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Brother Tuckett. Here is your ").append(request.getContextPath());
+		response.getWriter().append(" <form action = \"MyServlet\" method = \"POST\">\r\n" + 
+				"         First Name: <input type = \"text\" name = \"first_name\">\r\n" + 
+				"         <br />\r\n" + 
+				"         Last Name: <input type = \"text\" name = \"last_name\" />\r\n" + 
+				"         <input type = \"submit\" value = \"Submit\" />\r\n" + 
+				"      </form>");
 	}
 
-	/**
+	/*
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		response.getWriter().append("My name is: " + request.getParameter("first_name") + " ");
+		response.getWriter().append(request.getParameter("last_name"));
+
 	}
 
 }
+//You are close on this one. I can see you have your servlet all set up. One thing I would like to see if you use form data 
+//passed into the Servlet. This is usually done using a parameter in your servlet. Here is more information: 
+//	https://www.tutorialspoint.com/servlets/servlets-form-data.htm
